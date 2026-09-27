@@ -1,0 +1,30 @@
+{
+  "name": "bestik-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Bestik website \u2014 React frontend + Node/Express backend with admin dashboard and email contact form",
+  "scripts": {
+    "setup": "npm install && npm install --prefix server && npm install --prefix client",
+    "dev": "concurrently -n api,web,mail -c yellow,magenta,cyan \"npm run dev --prefix server\" \"npm run dev --prefix client\" \"npm run mail-catcher --prefix server\"",
+    "build": "npm run build --prefix client",
+    "start": "npm start --prefix server",
+    "mail-catcher": "npm run mail-catcher --prefix server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  },
+  "engines": {
+    "node": "22.x"
+  },
+  "type": "module",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "dotenv": "^18.0.4",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.7.0",
+    "helmet": "^8.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "nodemailer": "^10.0.11",
+    "@upstash/redis": "^1.35.0"
+  }
+}
